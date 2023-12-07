@@ -1,31 +1,17 @@
-const nums = [5, 4, 3, 2, 1];
+const nums = [22, 33, 44, 10, 8, 7, 2];
 
-const binarySearch = (arr, target) => {
+function findPeakElement(arr) {
   let start = 0;
-  let end = arr.length;
-  const isAsc = arr[start] < arr[end];
-
-  while (start <= end) {
+  let end = arr.length - 1;
+  while (start < end) {
     const mid = parseInt(start + (end - start) / 2);
-
-    if (target == arr[mid]) {
-      return mid;
-    }
-    if (isAsc) {
-      if (target > arr[mid]) {
-        start = mid + 1;
-      } else {
-        end = mid - 1;
-      }
+    if (arr[mid] > arr[mid + 1]) {
+      end = mid;
     } else {
-      if (target > arr[mid]) {
-        end = mid - 1;
-      } else {
-        start = mid + 1;
-      }
+      start = mid + 1;
     }
   }
-  return -1;
-};
+  return start;
+}
 
-console.log(binarySearch(nums, 1));
+console.log(findPeakElement(nums));
