@@ -1,6 +1,6 @@
 const nums = [22, 33, 44, 10, 8, 7, 2];
 
-function findPeakElement(arr) {
+const findPeakElement = (arr) => {
   let start = 0;
   let end = arr.length - 1;
   while (start < end) {
@@ -12,6 +12,6 @@ function findPeakElement(arr) {
     }
   }
   return start;
-}
+};
 
 console.log(findPeakElement(nums));
